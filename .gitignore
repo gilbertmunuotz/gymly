@@ -1,15 +1,87 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
+# =========================
+# Gymly Monorepo .gitignore
+# =========================
+
+# ----- Environment & secrets -----
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.jks
+*.keystore
+credentials.json
+secrets/
+
+# ----- macOS -----
 .DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+._*
+.AppleDouble
+.LSOverride
+
+# ----- Windows -----
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ----- Java / Eclipse -----
+*.class
+*.jar
+*.war
+*.ear
+hs_err_pid*
+.classpath
+.project
+.settings/
+.factorypath
+
+# ----- Gradle (Android) -----
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
 local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# ----- Maven (Spring Boot) -----
+target/
+!.mvn/wrapper/maven-wrapper.jar
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# ----- IntelliJ / Android Studio -----
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# ----- VS Code -----
+.vscode/
+
+# ----- Logs -----
+*.log
+logs/
+
+# ----- Spring Boot / STS -----
+.apt_generated
+.springBeans
+.sts4-cache
+
+# ----- NetBeans -----
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# ----- Misc -----
+HELP.md

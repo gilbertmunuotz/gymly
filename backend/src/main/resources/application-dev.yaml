@@ -1,0 +1,6 @@
+server:
+  port: 8080
+
+# Database and JPA settings will be added in Phase 3.
+# Use environment variables — never commit real passwords.
+# See .env.example at the repo root.

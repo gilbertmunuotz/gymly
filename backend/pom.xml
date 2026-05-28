@@ -8,11 +8,11 @@
 		<version>3.5.14</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.backend</groupId>
+	<groupId>com.gymly</groupId>
 	<artifactId>gymly</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name/>
-	<description/>
+	<name>gymly</name>
+	<description>Gymly — university assignment gym management REST API</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -73,6 +73,14 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Phase 3 — JWT (uncomment when implementing authentication)
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>0.12.6</version>
+		</dependency>
+		-->
 	</dependencies>
 
 	<build>
