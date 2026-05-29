@@ -12,7 +12,7 @@
 	<artifactId>gymly</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>gymly</name>
-	<description>Gymly — university assignment gym management REST API</description>
+	<description>Gymly - university assignment gym management REST API</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -29,6 +29,19 @@
 	<properties>
 		<java.version>21</java.version>
 	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>me.paulschwarz</groupId>
+				<artifactId>spring-dotenv-bom</artifactId>
+				<version>5.1.0</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -74,13 +87,29 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- Phase 3 — JWT (uncomment when implementing authentication)
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-api</artifactId>
 			<version>0.12.6</version>
 		</dependency>
-		-->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>0.12.6</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>0.12.6</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Loads backend/.env into Spring environment at startup -->
+		<dependency>
+			<groupId>me.paulschwarz</groupId>
+			<artifactId>springboot3-dotenv</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

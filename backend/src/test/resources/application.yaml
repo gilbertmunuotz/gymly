@@ -1,6 +1,11 @@
-# Test profile — no database required until Phase 3
+# Test profile — no database required (unit/context tests only)
 spring:
   autoconfigure:
     exclude:
       - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
       - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+
+gymly:
+  jwt:
+    secret: test-jwt-secret-key-min-32-characters!!
+    expiration-ms: 86400000
