@@ -1,3 +1,12 @@
 spring:
   application:
     name: gymly
+  profiles:
+    active: dev
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
+
+server:
+  servlet:
+    context-path: /api

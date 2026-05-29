@@ -1,8 +1,7 @@
 # Gymly
 
-University assignment project — a gym management mobile app with an Android client and Spring Boot REST API.
+University assignment project - a gym management mobile app with an Android client and Spring Boot REST API.
 
-**Current status:** Phase 1 — project organization only. Features will be added in later phases.
 
 ## Project Structure
 
@@ -40,20 +39,24 @@ gymly/
 
 ## Prerequisites
 
-- **JDK 21** — backend
-- **Maven** — included via `./mvnw` wrapper
-- **Android Studio** — frontend
-- **PostgreSQL** — database (configured in Phase 3)
+- **JDK 21** - backend
+- **Maven** - included via `./mvnw` wrapper
+- **Android Studio** - frontend
+- **PostgreSQL** - database 
 
 ## Getting Started
 
 ### 1. Environment variables
 
-Copy the template and fill in your local values:
+Create `backend/.env` from the template:
 
 ```bash
-cp .env.example .env
+cp backend/.env.example backend/.env
 ```
+
+Edit `backend/.env` with your PostgreSQL username. Leave `DB_PASSWORD` empty if your local Postgres has no password.
+
+Spring Boot loads this file automatically via `springboot3-dotenv` — no manual `export` needed.
 
 Never commit `.env` — it is gitignored.
 
@@ -65,7 +68,19 @@ cd backend
 ./mvnw spring-boot:run
 ```
 
-API runs on `http://localhost:8080` (full DB config in Phase 3).
+API base URL: `http://localhost:8080/api`
+
+Health check: `GET http://localhost:8080/api/health`
+
+### Database setup (Phase 2)
+
+Create the database and run the SQL scripts:
+
+```bash
+createdb gymly
+psql -d gymly -f backend/src/main/resources/db/schema.sql
+psql -d gymly -f backend/src/main/resources/db/seed.sql
+```
 
 ### 3. Android
 
@@ -82,24 +97,3 @@ main              → stable, demo-ready code
 feature/<name>    → one feature or phase at a time
 fix/<name>        → bug fixes
 ```
-
-Example: `feature/auth` for Phase 4 authentication work.
-
-## What NOT to Commit
-
-- `.env` files and secrets (passwords, JWT keys, API keys)
-- `local.properties` (Android SDK path)
-- `build/`, `target/`, `.gradle/` (build output)
-- `.idea/` IDE state
-- Keystores (`*.jks`, `*.keystore`)
-- APK/AAB files
-
-## Phases
-
-| Phase | Focus                          | Status      |
-|-------|--------------------------------|-------------|
-| 1     | Project organization           | Complete    |
-| 2     | Database design                | Up next     |
-| 3     | Spring Boot foundation         | Planned     |
-| 4     | Authentication                 | Planned     |
-| 5+    | UI, features, polish           | Planned     |
