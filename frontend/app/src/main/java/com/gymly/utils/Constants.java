@@ -17,4 +17,5 @@ public final class Constants {
     public static final String KEY_AUTH_TOKEN = "auth_token";
     public static final String KEY_USER_ID = "user_id";
     public static final String KEY_USER_NAME = "user_name";
+    public static final String KEY_USER_EMAIL = "user_email";
 }

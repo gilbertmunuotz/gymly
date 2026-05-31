@@ -49,17 +49,10 @@ dependencies {
     implementation(libs.material)
 
     // Phase 4 — Authentication (Retrofit)
-    // implementation(libs.retrofit)
-    // implementation(libs.retrofit.gson)
-    // implementation(libs.okhttp)
-    // implementation(libs.okhttp.logging)
-
-    // Phase 5 — Lifecycle
-    // implementation(libs.lifecycle.viewmodel)
-    // implementation(libs.lifecycle.livedata)
-
-    // Phase 6 — Image loading
-    // implementation(libs.glide)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.espresso.core)

@@ -2,8 +2,14 @@ package com.gymly;
 
 import android.app.Application;
 
-/**
- * Application entry point. Used for app-wide initialization in later phases.
- */
+import com.gymly.data.local.SessionManager;
+
 public class GymlyApplication extends Application {
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        SessionManager.init(this);
+        SessionManager.getInstance().restoreToken();
+    }
 }

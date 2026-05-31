@@ -4,14 +4,14 @@
 -- Run after schema.sql against database: gymly
 --
 -- Demo login password for all seeded users: password123
--- (BCrypt hash — real hashing implemented in Phase 4)
+-- (BCrypt hash from Spring BCryptPasswordEncoder)
 -- =============================================================================
 
 -- Users
 INSERT INTO users (email, password_hash, full_name, phone) VALUES
-    ('john@gmail.com',  '$2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHs8op9O5/ZIZ.xoP/QmXO', 'John Kamau',   '0742345678'),
-    ('jane@gmail.com',  '$2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHs8op9O5/ZIZ.xoP/QmXO', 'Jane Robert', '0693913076'),
-    ('peter@gmail.com', '$2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHs8op9O5/ZIZ.xoP/QmXO', 'Peter Mathias','0734567890');
+    ('john@gmail.com',  '$2a$10$5TYSPXP3hA1gdqZTpkiubeBVsmUMq7GmswMxQWgNnyBaHcnvA5POe', 'John Kamau',   '0742345678'),
+    ('jane@gmail.com',  '$2a$10$5TYSPXP3hA1gdqZTpkiubeBVsmUMq7GmswMxQWgNnyBaHcnvA5POe', 'Jane Robert', '0693913076'),
+    ('peter@gmail.com', '$2a$10$5TYSPXP3hA1gdqZTpkiubeBVsmUMq7GmswMxQWgNnyBaHcnvA5POe', 'Peter Mathias','0734567890');
 
 -- Membership plans (prices in KES for M-Pesa demo in Phase 6)
 INSERT INTO membership_plans (name, description, price, duration_days) VALUES
