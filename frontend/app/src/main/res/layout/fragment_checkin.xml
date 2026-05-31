@@ -2,11 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gym_background"
     android:orientation="vertical"
     android:padding="@dimen/padding_medium">
 
     <ProgressBar
         android:id="@+id/progressBar"
+        style="@style/Widget.Gymly.ProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -24,10 +26,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_small"
         android:text="@string/checkin_hint"
-        android:textColor="@android:color/darker_gray" />
+        android:textColor="@color/gym_text_secondary" />
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Gymly.Card"
+            android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_large">
 
@@ -51,7 +54,7 @@
                 android:layout_marginTop="@dimen/margin_medium"
                 android:gravity="center"
                 android:text="@string/checkin_qr_hint"
-                android:textColor="@android:color/darker_gray" />
+                android:textColor="@color/gym_text_secondary" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnScanQr"
@@ -75,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_small"
         android:text="@string/checkin_history_empty"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="@color/gym_text_secondary"
         android:visibility="gone" />
 
     <androidx.recyclerview.widget.RecyclerView

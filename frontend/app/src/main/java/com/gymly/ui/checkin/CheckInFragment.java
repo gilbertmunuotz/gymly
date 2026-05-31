@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,6 +21,7 @@ import com.gymly.data.model.AttendanceRecord;
 import com.gymly.data.model.CheckInRequest;
 import com.gymly.network.ApiClient;
 import com.gymly.utils.ApiUtils;
+import com.gymly.utils.UiUtils;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -107,9 +107,8 @@ public class CheckInFragment extends Fragment {
                             showCheckInSuccess(response.body().getData());
                             loadHistory();
                         } else {
-                            Toast.makeText(requireContext(),
-                                    ApiUtils.getErrorMessage(response, getString(R.string.error_checkin)),
-                                    Toast.LENGTH_SHORT).show();
+                            UiUtils.showError(requireView(),
+                                    ApiUtils.getErrorMessage(response, getString(R.string.error_checkin)));
                         }
                     }
 
@@ -118,7 +117,7 @@ public class CheckInFragment extends Fragment {
                         if (isAdded()) {
                             setLoading(false);
                             btnScanQr.setEnabled(true);
-                            Toast.makeText(requireContext(), R.string.error_network, Toast.LENGTH_SHORT).show();
+                            UiUtils.showNetworkError(requireView(), requireContext());
                         }
                     }
                 });
@@ -152,9 +151,8 @@ public class CheckInFragment extends Fragment {
                     boolean empty = records == null || records.isEmpty();
                     textHistoryEmpty.setVisibility(empty ? View.VISIBLE : View.GONE);
                 } else {
-                    Toast.makeText(requireContext(),
-                            ApiUtils.getErrorMessage(response, getString(R.string.error_load_checkin_history)),
-                            Toast.LENGTH_SHORT).show();
+                    UiUtils.showError(requireView(),
+                            ApiUtils.getErrorMessage(response, getString(R.string.error_load_checkin_history)));
                 }
             }
 
@@ -162,7 +160,7 @@ public class CheckInFragment extends Fragment {
             public void onFailure(Call<ApiResponse<List<AttendanceRecord>>> call, Throwable t) {
                 if (isAdded()) {
                     setLoading(false);
-                    Toast.makeText(requireContext(), R.string.error_network, Toast.LENGTH_SHORT).show();
+                    UiUtils.showNetworkError(requireView(), requireContext());
                 }
             }
         });

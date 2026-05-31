@@ -20,6 +20,7 @@ import com.gymly.data.model.MembershipPlan;
 import com.gymly.data.model.SubscribeRequest;
 import com.gymly.network.ApiClient;
 import com.gymly.utils.ApiUtils;
+import com.gymly.utils.UiUtils;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.List;
@@ -77,16 +78,15 @@ public class MembershipPlansActivity extends AppCompatActivity {
                     adapter.setPlans(plans);
                     textEmpty.setVisibility(plans == null || plans.isEmpty() ? View.VISIBLE : View.GONE);
                 } else {
-                    Toast.makeText(MembershipPlansActivity.this,
-                            ApiUtils.getErrorMessage(response, getString(R.string.error_load_plans)),
-                            Toast.LENGTH_SHORT).show();
+                    UiUtils.showError(findViewById(android.R.id.content),
+                            ApiUtils.getErrorMessage(response, getString(R.string.error_load_plans)));
                 }
             }
 
             @Override
             public void onFailure(Call<ApiResponse<List<MembershipPlan>>> call, Throwable t) {
                 setLoading(false);
-                Toast.makeText(MembershipPlansActivity.this, R.string.error_network, Toast.LENGTH_SHORT).show();
+                UiUtils.showNetworkError(findViewById(android.R.id.content), MembershipPlansActivity.this);
             }
         });
     }
@@ -126,16 +126,15 @@ public class MembershipPlansActivity extends AppCompatActivity {
                         if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
                             showSuccessDialog(response.body().getData());
                         } else {
-                            Toast.makeText(MembershipPlansActivity.this,
-                                    ApiUtils.getErrorMessage(response, getString(R.string.error_subscribe)),
-                                    Toast.LENGTH_SHORT).show();
+                            UiUtils.showError(findViewById(android.R.id.content),
+                                    ApiUtils.getErrorMessage(response, getString(R.string.error_subscribe)));
                         }
                     }
 
                     @Override
                     public void onFailure(Call<ApiResponse<MembershipData>> call, Throwable t) {
                         setLoading(false);
-                        Toast.makeText(MembershipPlansActivity.this, R.string.error_network, Toast.LENGTH_SHORT).show();
+                        UiUtils.showNetworkError(findViewById(android.R.id.content), MembershipPlansActivity.this);
                     }
                 });
     }

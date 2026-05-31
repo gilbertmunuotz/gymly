@@ -21,6 +21,7 @@ import com.gymly.data.model.ClassBookingData;
 import com.gymly.data.model.GymClass;
 import com.gymly.network.ApiClient;
 import com.gymly.utils.ApiUtils;
+import com.gymly.utils.UiUtils;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.List;
@@ -76,11 +77,12 @@ public class ClassesFragment extends Fragment {
                 if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
                     List<GymClass> classes = response.body().getData();
                     adapter.setClasses(classes);
-                    textEmpty.setVisibility(classes == null || classes.isEmpty() ? View.VISIBLE : View.GONE);
+                    boolean empty = classes == null || classes.isEmpty();
+                    textEmpty.setVisibility(empty ? View.VISIBLE : View.GONE);
+                    recyclerClasses.setVisibility(empty ? View.GONE : View.VISIBLE);
                 } else {
-                    Toast.makeText(requireContext(),
-                            ApiUtils.getErrorMessage(response, getString(R.string.error_load_classes)),
-                            Toast.LENGTH_SHORT).show();
+                    UiUtils.showError(requireView(),
+                            ApiUtils.getErrorMessage(response, getString(R.string.error_load_classes)));
                 }
             }
 
@@ -88,7 +90,7 @@ public class ClassesFragment extends Fragment {
             public void onFailure(Call<ApiResponse<List<GymClass>>> call, Throwable t) {
                 if (isAdded()) {
                     setLoading(false);
-                    Toast.makeText(requireContext(), R.string.error_network, Toast.LENGTH_SHORT).show();
+                    UiUtils.showNetworkError(requireView(), requireContext());
                 }
             }
         });
@@ -119,9 +121,8 @@ public class ClassesFragment extends Fragment {
                             showBookingSuccess(response.body().getData());
                             loadClasses();
                         } else {
-                            Toast.makeText(requireContext(),
-                                    ApiUtils.getErrorMessage(response, getString(R.string.error_book_class)),
-                                    Toast.LENGTH_SHORT).show();
+                            UiUtils.showError(requireView(),
+                                    ApiUtils.getErrorMessage(response, getString(R.string.error_book_class)));
                         }
                     }
 
@@ -129,7 +130,7 @@ public class ClassesFragment extends Fragment {
                     public void onFailure(Call<ApiResponse<ClassBookingData>> call, Throwable t) {
                         if (isAdded()) {
                             setLoading(false);
-                            Toast.makeText(requireContext(), R.string.error_network, Toast.LENGTH_SHORT).show();
+                            UiUtils.showNetworkError(requireView(), requireContext());
                         }
                     }
                 });
@@ -151,5 +152,9 @@ public class ClassesFragment extends Fragment {
 
     private void setLoading(boolean loading) {
         progressBar.setVisibility(loading ? View.VISIBLE : View.GONE);
+        if (loading) {
+            recyclerClasses.setVisibility(View.GONE);
+            textEmpty.setVisibility(View.GONE);
+        }
     }
 }

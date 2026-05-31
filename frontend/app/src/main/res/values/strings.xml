@@ -25,6 +25,8 @@
     <!-- Home -->
     <string name="welcome_user">Welcome, %1$s!</string>
     <string name="home_subtitle">Ready for your workout today?</string>
+    <string name="home_membership_status_title">Membership Status</string>
+    <string name="home_no_membership">No active membership</string>
     <string name="home_quick_actions">Membership</string>
     <string name="home_membership_hint">Choose a plan and subscribe via M-Pesa (simulated).</string>
     <string name="btn_view_membership_plans">View Membership Plans</string>
@@ -82,7 +84,16 @@
 
     <!-- Profile -->
     <string name="profile_title">My Profile</string>
-    <string name="profile_placeholder">Edit profile, membership status, and logout.\n(Feature coming in Phase 10)</string>
+    <string name="btn_save_profile">Save Profile</string>
+    <string name="profile_membership_title">Membership Status</string>
+    <string name="profile_active_membership">Active: %1$s (expires %2$s)</string>
+    <string name="profile_no_membership">No active membership</string>
+    <string name="profile_saved">Profile updated successfully</string>
+    <string name="btn_logout">Logout</string>
+    <string name="logout_dialog_title">Logout</string>
+    <string name="logout_dialog_message">Are you sure you want to logout?</string>
+    <string name="error_load_profile">Failed to load profile</string>
+    <string name="error_save_profile">Failed to save profile</string>
 
     <!-- Messages -->
     <string name="login_success">Login successful</string>

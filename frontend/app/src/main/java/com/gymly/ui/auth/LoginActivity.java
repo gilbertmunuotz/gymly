@@ -17,6 +17,7 @@ import com.gymly.data.model.LoginRequest;
 import com.gymly.network.ApiClient;
 import com.gymly.ui.MainActivity;
 import com.gymly.utils.ApiUtils;
+import com.gymly.utils.UiUtils;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -75,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ApiResponse<AuthData>> call, Throwable t) {
                 setLoading(false);
-                Toast.makeText(LoginActivity.this, R.string.error_network, Toast.LENGTH_SHORT).show();
+                UiUtils.showNetworkError(findViewById(android.R.id.content), LoginActivity.this);
             }
         });
     }
@@ -85,12 +86,11 @@ public class LoginActivity extends AppCompatActivity {
             AuthData data = response.body().getData();
             SessionManager.getInstance().saveSession(
                     data.getToken(), data.getUserId(), data.getFullName(), data.getEmail());
-            Toast.makeText(this, R.string.login_success, Toast.LENGTH_SHORT).show();
+            UiUtils.showSuccess(this, R.string.login_success);
             goToMain();
         } else {
-            Toast.makeText(this,
-                    ApiUtils.getErrorMessage(response, getString(R.string.error_login_failed)),
-                    Toast.LENGTH_SHORT).show();
+            UiUtils.showError(findViewById(android.R.id.content),
+                    ApiUtils.getErrorMessage(response, getString(R.string.error_login_failed)));
         }
     }
 
