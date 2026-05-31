@@ -17,6 +17,7 @@ import com.gymly.data.model.ApiResponse;
 import com.gymly.data.model.MembershipData;
 import com.gymly.network.ApiClient;
 import com.gymly.ui.membership.MembershipPlansActivity;
+import com.gymly.ui.training.TrainersActivity;
 import com.google.android.material.button.MaterialButton;
 
 import retrofit2.Call;
@@ -45,6 +46,10 @@ public class HomeFragment extends Fragment {
         MaterialButton btnViewPlans = view.findViewById(R.id.btnViewPlans);
         btnViewPlans.setOnClickListener(v ->
                 startActivity(new Intent(requireContext(), MembershipPlansActivity.class)));
+
+        MaterialButton btnBookTraining = view.findViewById(R.id.btnBookTraining);
+        btnBookTraining.setOnClickListener(v ->
+                startActivity(new Intent(requireContext(), TrainersActivity.class)));
 
         loadActiveMembership();
     }
