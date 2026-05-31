@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance.Gymly.Title" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textColor">@color/gym_text_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.Gymly.Subtitle" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:textColor">@color/gym_text_secondary</item>
+    </style>
+
+    <style name="Widget.Gymly.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">@dimen/corner_radius</item>
+        <item name="cardElevation">2dp</item>
+        <item name="cardBackgroundColor">@color/gym_surface</item>
+    </style>
+
+    <style name="Widget.Gymly.Button" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/gym_primary</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Widget.Gymly.ProgressBar" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:indeterminateTint">@color/gym_primary</item>
+    </style>
+
+    <style name="Widget.Gymly.EmptyState" parent="Widget.AppCompat.TextView">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/gym_text_secondary</item>
+        <item name="android:textSize">@dimen/text_size_body</item>
+        <item name="android:drawablePadding">@dimen/margin_medium</item>
+    </style>
+
+</resources>

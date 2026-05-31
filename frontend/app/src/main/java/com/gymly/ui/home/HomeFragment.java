@@ -71,20 +71,19 @@ public class HomeFragment extends Fragment {
                         }
                         if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
                             MembershipData data = response.body().getData();
-                            textMembershipStatus.setVisibility(View.VISIBLE);
                             textMembershipStatus.setText(getString(
                                     R.string.home_active_membership,
                                     data.getPlanName(),
                                     data.getEndDate()));
                         } else {
-                            textMembershipStatus.setVisibility(View.GONE);
+                            textMembershipStatus.setText(R.string.home_no_membership);
                         }
                     }
 
                     @Override
                     public void onFailure(Call<ApiResponse<MembershipData>> call, Throwable t) {
                         if (isAdded()) {
-                            textMembershipStatus.setVisibility(View.GONE);
+                            textMembershipStatus.setText(R.string.home_no_membership);
                         }
                     }
                 });

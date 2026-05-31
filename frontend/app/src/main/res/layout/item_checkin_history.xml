@@ -16,6 +16,6 @@
         android:id="@+id/textType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/darker_gray" />
+        android:textColor="@color/gym_text_secondary" />
 
 </LinearLayout>

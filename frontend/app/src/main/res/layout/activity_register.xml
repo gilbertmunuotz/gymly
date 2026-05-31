@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gym_background"
     android:fillViewport="true">
 
     <LinearLayout
@@ -12,10 +13,18 @@
         android:orientation="vertical"
         android:padding="@dimen/padding_large">
 
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="@dimen/margin_large"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_gym_logo"
+            app:tint="@color/gym_primary" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_medium"
             android:layout_marginBottom="@dimen/margin_large"
             android:text="@string/register_title"
             android:textColor="@color/gym_primary"
@@ -83,6 +92,7 @@
 
         <ProgressBar
             android:id="@+id/progressBar"
+            style="@style/Widget.Gymly.ProgressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_medium"

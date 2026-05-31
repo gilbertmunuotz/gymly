@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +20,7 @@ import com.gymly.data.model.PtBookingData;
 import com.gymly.data.model.Trainer;
 import com.gymly.network.ApiClient;
 import com.gymly.utils.ApiUtils;
+import com.gymly.utils.UiUtils;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
@@ -80,16 +80,15 @@ public class TrainersActivity extends AppCompatActivity {
                     adapter.setTrainers(trainers);
                     textEmpty.setVisibility(trainers == null || trainers.isEmpty() ? View.VISIBLE : View.GONE);
                 } else {
-                    Toast.makeText(TrainersActivity.this,
-                            ApiUtils.getErrorMessage(response, getString(R.string.error_load_trainers)),
-                            Toast.LENGTH_SHORT).show();
+                    UiUtils.showError(findViewById(android.R.id.content),
+                            ApiUtils.getErrorMessage(response, getString(R.string.error_load_trainers)));
                 }
             }
 
             @Override
             public void onFailure(Call<ApiResponse<List<Trainer>>> call, Throwable t) {
                 setLoading(false);
-                Toast.makeText(TrainersActivity.this, R.string.error_network, Toast.LENGTH_SHORT).show();
+                UiUtils.showNetworkError(findViewById(android.R.id.content), TrainersActivity.this);
             }
         });
     }
@@ -170,16 +169,15 @@ public class TrainersActivity extends AppCompatActivity {
                         if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
                             showSuccessDialog(response.body().getData());
                         } else {
-                            Toast.makeText(TrainersActivity.this,
-                                    ApiUtils.getErrorMessage(response, getString(R.string.error_book_pt)),
-                                    Toast.LENGTH_SHORT).show();
+                            UiUtils.showError(findViewById(android.R.id.content),
+                                    ApiUtils.getErrorMessage(response, getString(R.string.error_book_pt)));
                         }
                     }
 
                     @Override
                     public void onFailure(Call<ApiResponse<PtBookingData>> call, Throwable t) {
                         setLoading(false);
-                        Toast.makeText(TrainersActivity.this, R.string.error_network, Toast.LENGTH_SHORT).show();
+                        UiUtils.showNetworkError(findViewById(android.R.id.content), TrainersActivity.this);
                     }
                 });
     }

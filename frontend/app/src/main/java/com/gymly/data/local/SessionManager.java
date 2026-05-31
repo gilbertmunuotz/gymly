@@ -71,4 +71,8 @@ public class SessionManager {
         prefs.edit().clear().apply();
         ApiClient.setAuthToken(null);
     }
+
+    public void updateUserName(String userName) {
+        prefs.edit().putString(Constants.KEY_USER_NAME, userName).apply();
+    }
 }

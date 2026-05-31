@@ -2,10 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gym_background"
     android:orientation="vertical">
 
     <ProgressBar
         android:id="@+id/progressBar"
+        style="@style/Widget.Gymly.ProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -14,10 +16,12 @@
 
     <TextView
         android:id="@+id/textEmpty"
+        style="@style/Widget.Gymly.EmptyState"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/margin_large"
+        android:drawableTop="@drawable/ic_empty_state"
         android:text="@string/classes_empty"
         android:visibility="gone" />
 

@@ -4,6 +4,7 @@ import com.gymly.data.api.AuthApiService;
 import com.gymly.data.api.CheckInApiService;
 import com.gymly.data.api.ClassApiService;
 import com.gymly.data.api.MembershipApiService;
+import com.gymly.data.api.ProfileApiService;
 import com.gymly.data.api.TrainerApiService;
 import com.gymly.utils.Constants;
 
@@ -20,6 +21,7 @@ public final class ApiClient {
     private static ClassApiService classApiService;
     private static TrainerApiService trainerApiService;
     private static CheckInApiService checkInApiService;
+    private static ProfileApiService profileApiService;
     private static String authToken;
 
     private ApiClient() {
@@ -33,6 +35,7 @@ public final class ApiClient {
         classApiService = null;
         trainerApiService = null;
         checkInApiService = null;
+        profileApiService = null;
     }
 
     private static Retrofit getRetrofit() {
@@ -93,5 +96,12 @@ public final class ApiClient {
             checkInApiService = getRetrofit().create(CheckInApiService.class);
         }
         return checkInApiService;
+    }
+
+    public static ProfileApiService getProfileService() {
+        if (profileApiService == null) {
+            profileApiService = getRetrofit().create(ProfileApiService.class);
+        }
+        return profileApiService;
     }
 }
