@@ -17,6 +17,9 @@ glide = "4.16.0"
 # Lifecycle (Phase 5+)
 lifecycle = "2.8.7"
 
+# UI (Phase 6+)
+recyclerview = "1.4.0"
+
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -36,6 +39,9 @@ glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "gl
 # Lifecycle (Phase 5+)
 lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "lifecycle" }
 lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata", version.ref = "lifecycle" }
+
+# UI
+recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

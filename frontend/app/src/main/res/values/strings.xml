@@ -25,12 +25,28 @@
     <!-- Home -->
     <string name="welcome_user">Welcome, %1$s!</string>
     <string name="home_subtitle">Ready for your workout today?</string>
-    <string name="home_quick_actions">Quick Actions</string>
-    <string name="home_quick_actions_hint">Membership, classes, and check-in features coming in upcoming phases.</string>
+    <string name="home_quick_actions">Membership</string>
+    <string name="home_membership_hint">Choose a plan and subscribe via M-Pesa (simulated).</string>
+    <string name="btn_view_membership_plans">View Membership Plans</string>
+    <string name="home_active_membership">Active plan: %1$s (expires %2$s)</string>
 
     <!-- Classes -->
     <string name="classes_title">Group Classes</string>
-    <string name="classes_placeholder">Browse and book group classes.\n(Feature coming in Phase 7)</string>
+    <string name="classes_empty">No classes available</string>
+    <string name="class_schedule_format">%1$s · %2$s – %3$s</string>
+    <string name="class_trainer_format">Trainer: %1$s</string>
+    <string name="class_location_format">Location: %1$s</string>
+    <string name="class_spots_format">%1$d of %2$d spots left</string>
+    <string name="btn_book_class">Book Class</string>
+    <string name="btn_already_booked">Booked</string>
+    <string name="btn_class_full">Full</string>
+    <string name="btn_confirm_book">Confirm Booking</string>
+    <string name="book_class_dialog_title">Book Class</string>
+    <string name="book_class_dialog_message">Book a spot for \"%1$s\"?</string>
+    <string name="booking_success_title">Booking Confirmed!</string>
+    <string name="booking_success_message">You are booked for %1$s on %2$s at %3$s.\nLocation: %4$s</string>
+    <string name="error_load_classes">Failed to load classes</string>
+    <string name="error_book_class">Booking failed</string>
 
     <!-- Check-In -->
     <string name="checkin_title">Gym Check-In</string>
@@ -49,4 +65,22 @@
     <string name="error_password_length">Password must be at least 6 characters</string>
     <string name="error_login_failed">Login failed</string>
     <string name="error_register_failed">Registration failed</string>
+
+    <!-- Membership (Phase 6) -->
+    <string name="membership_plans_title">Membership Plans</string>
+    <string name="membership_no_plans">No plans available</string>
+    <string name="membership_price_format">KES %1$.0f / month</string>
+    <string name="membership_duration_format">%1$d days access</string>
+    <string name="btn_subscribe">Subscribe</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_pay_mpesa">Pay with M-Pesa</string>
+    <string name="mpesa_dialog_title">M-Pesa Payment</string>
+    <string name="mpesa_dialog_message">You will pay KES %1$.0f for the %2$s plan.\n\nThis is a simulated payment for demo purposes.</string>
+    <string name="mpesa_processing_title">Processing Payment</string>
+    <string name="mpesa_processing_message">Waiting for M-Pesa confirmation…</string>
+    <string name="mpesa_success_title">Payment Successful!</string>
+    <string name="mpesa_success_message">You are now subscribed to %1$s.\nValid until %2$s.</string>
+    <string name="error_load_plans">Failed to load plans</string>
+    <string name="error_subscribe">Subscription failed</string>
 </resources>

@@ -46,10 +46,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_small"
-                    android:text="@string/home_quick_actions_hint"
+                    android:text="@string/home_membership_hint"
                     android:textColor="@android:color/darker_gray" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnViewPlans"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="@string/btn_view_membership_plans" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/textMembershipStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:visibility="gone" />
 
     </LinearLayout>
 </ScrollView>
