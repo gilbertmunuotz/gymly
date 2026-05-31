@@ -1,6 +1,8 @@
 package com.gymly.network;
 
 import com.gymly.data.api.AuthApiService;
+import com.gymly.data.api.ClassApiService;
+import com.gymly.data.api.MembershipApiService;
 import com.gymly.utils.Constants;
 
 import okhttp3.OkHttpClient;
@@ -12,6 +14,8 @@ public final class ApiClient {
 
     private static Retrofit retrofit;
     private static AuthApiService authApiService;
+    private static MembershipApiService membershipApiService;
+    private static ClassApiService classApiService;
     private static String authToken;
 
     private ApiClient() {
@@ -21,6 +25,8 @@ public final class ApiClient {
         authToken = token;
         retrofit = null;
         authApiService = null;
+        membershipApiService = null;
+        classApiService = null;
     }
 
     private static Retrofit getRetrofit() {
@@ -53,5 +59,19 @@ public final class ApiClient {
             authApiService = getRetrofit().create(AuthApiService.class);
         }
         return authApiService;
+    }
+
+    public static MembershipApiService getMembershipService() {
+        if (membershipApiService == null) {
+            membershipApiService = getRetrofit().create(MembershipApiService.class);
+        }
+        return membershipApiService;
+    }
+
+    public static ClassApiService getClassService() {
+        if (classApiService == null) {
+            classApiService = getRetrofit().create(ClassApiService.class);
+        }
+        return classApiService;
     }
 }
