@@ -29,6 +29,9 @@
     <string name="home_membership_hint">Choose a plan and subscribe via M-Pesa (simulated).</string>
     <string name="btn_view_membership_plans">View Membership Plans</string>
     <string name="home_active_membership">Active plan: %1$s (expires %2$s)</string>
+    <string name="home_pt_title">Personal Training</string>
+    <string name="home_pt_hint">Book a one-on-one session with a trainer.</string>
+    <string name="btn_book_personal_training">Book Personal Training</string>
 
     <!-- Classes -->
     <string name="classes_title">Group Classes</string>
@@ -48,9 +51,34 @@
     <string name="error_load_classes">Failed to load classes</string>
     <string name="error_book_class">Booking failed</string>
 
+    <!-- Personal Training (Phase 8) -->
+    <string name="trainers_title">Personal Trainers</string>
+    <string name="trainers_empty">No trainers available</string>
+    <string name="btn_book_session">Book Session</string>
+    <string name="book_pt_dialog_title">Book Personal Training</string>
+    <string name="hint_pt_notes">Notes (optional)</string>
+    <string name="pt_date_format">Date: %1$02d/%2$02d/%3$d</string>
+    <string name="pt_time_format">Time: %1$02d:%2$02d</string>
+    <string name="pt_booking_success_title">Session Booked!</string>
+    <string name="pt_booking_success_message">Trainer: %1$s\nDate: %2$s at %3$s\nStatus: %4$s</string>
+    <string name="error_load_trainers">Failed to load trainers</string>
+    <string name="error_book_pt">Booking failed</string>
+
     <!-- Check-In -->
     <string name="checkin_title">Gym Check-In</string>
-    <string name="checkin_placeholder">Check in when you arrive at the gym.\n(Feature coming in Phase 9)</string>
+    <string name="checkin_hint">Scan the QR code at the gym entrance to check in.</string>
+    <string name="checkin_qr_content_desc">Gym QR code placeholder</string>
+    <string name="checkin_qr_hint">Simulated QR scanner for demo purposes.</string>
+    <string name="btn_scan_qr">Scan QR &amp; Check In</string>
+    <string name="qr_scan_title">Scanning QR Code</string>
+    <string name="qr_scan_message">Point your camera at the gym entrance QR code…</string>
+    <string name="checkin_success_title">Checked In!</string>
+    <string name="checkin_success_message">Welcome! You checked in at %1$s.</string>
+    <string name="checkin_history_title">Recent Check-Ins</string>
+    <string name="checkin_history_empty">No check-ins yet</string>
+    <string name="checkin_type_format">%1$s</string>
+    <string name="error_checkin">Check-in failed</string>
+    <string name="error_load_checkin_history">Failed to load check-in history</string>
 
     <!-- Profile -->
     <string name="profile_title">My Profile</string>

@@ -1,6 +1,9 @@
 package com.gymly;
 
+import com.gymly.repository.AttendanceRepository;
 import com.gymly.repository.ClassBookingRepository;
+import com.gymly.repository.PtBookingRepository;
+import com.gymly.repository.TrainerRepository;
 import com.gymly.repository.GymClassRepository;
 import com.gymly.repository.MembershipPlanRepository;
 import com.gymly.repository.MembershipRepository;
@@ -26,6 +29,15 @@ class GymlyApplicationTests {
 
 	@MockBean
 	private ClassBookingRepository classBookingRepository;
+
+	@MockBean
+	private TrainerRepository trainerRepository;
+
+	@MockBean
+	private PtBookingRepository ptBookingRepository;
+
+	@MockBean
+	private AttendanceRepository attendanceRepository;
 
 	@Test
 	void contextLoads() {
