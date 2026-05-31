@@ -1,3 +1,52 @@
 <resources>
-    <string name="app_name">gymly</string>
+    <string name="app_name">Gymly</string>
+
+    <!-- Splash -->
+    <string name="splash_tagline">Your gym, simplified</string>
+
+    <!-- Auth -->
+    <string name="login_title">Welcome to Gymly</string>
+    <string name="register_title">Create Account</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_full_name">Full Name</string>
+    <string name="hint_phone">Phone (optional)</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_register">Register</string>
+    <string name="no_account_register">Don\'t have an account? Register</string>
+    <string name="have_account_login">Already have an account? Login</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_classes">Classes</string>
+    <string name="nav_checkin">Check-In</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Home -->
+    <string name="welcome_user">Welcome, %1$s!</string>
+    <string name="home_subtitle">Ready for your workout today?</string>
+    <string name="home_quick_actions">Quick Actions</string>
+    <string name="home_quick_actions_hint">Membership, classes, and check-in features coming in upcoming phases.</string>
+
+    <!-- Classes -->
+    <string name="classes_title">Group Classes</string>
+    <string name="classes_placeholder">Browse and book group classes.\n(Feature coming in Phase 7)</string>
+
+    <!-- Check-In -->
+    <string name="checkin_title">Gym Check-In</string>
+    <string name="checkin_placeholder">Check in when you arrive at the gym.\n(Feature coming in Phase 9)</string>
+
+    <!-- Profile -->
+    <string name="profile_title">My Profile</string>
+    <string name="profile_placeholder">Edit profile, membership status, and logout.\n(Feature coming in Phase 10)</string>
+
+    <!-- Messages -->
+    <string name="login_success">Login successful</string>
+    <string name="register_success">Account created successfully</string>
+    <string name="error_network">Network error. Check backend is running.</string>
+    <string name="error_fill_all_fields">Please fill in email and password</string>
+    <string name="error_fill_required_fields">Please fill in all required fields</string>
+    <string name="error_password_length">Password must be at least 6 characters</string>
+    <string name="error_login_failed">Login failed</string>
+    <string name="error_register_failed">Registration failed</string>
 </resources>
