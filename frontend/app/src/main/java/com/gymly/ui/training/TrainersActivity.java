@@ -21,6 +21,7 @@ import com.gymly.data.model.Trainer;
 import com.gymly.network.ApiClient;
 import com.gymly.utils.ApiUtils;
 import com.gymly.utils.UiUtils;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
@@ -45,8 +46,9 @@ public class TrainersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trainers);
 
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(R.string.trainers_title);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 

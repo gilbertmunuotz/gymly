@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.gymly.R;
@@ -34,6 +35,10 @@ import retrofit2.Response;
 public class ProfileFragment extends Fragment {
 
     private ProgressBar progressBar;
+    private ProgressBar progressMembership;
+    private TextView textAvatarInitial;
+    private TextView textProfileName;
+    private TextView textProfileEmail;
     private TextInputEditText editFullName;
     private TextInputEditText editEmail;
     private TextInputEditText editPhone;
@@ -53,6 +58,10 @@ public class ProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         progressBar = view.findViewById(R.id.progressBar);
+        progressMembership = view.findViewById(R.id.progressMembership);
+        textAvatarInitial = view.findViewById(R.id.textAvatarInitial);
+        textProfileName = view.findViewById(R.id.textProfileName);
+        textProfileEmail = view.findViewById(R.id.textProfileEmail);
         editFullName = view.findViewById(R.id.editFullName);
         editEmail = view.findViewById(R.id.editEmail);
         editPhone = view.findViewById(R.id.editPhone);
@@ -62,6 +71,8 @@ public class ProfileFragment extends Fragment {
 
         btnSaveProfile.setOnClickListener(v -> saveProfile());
         btnLogout.setOnClickListener(v -> confirmLogout());
+
+        bindHeaderFromSession();
     }
 
     @Override
@@ -69,6 +80,14 @@ public class ProfileFragment extends Fragment {
         super.onResume();
         loadProfile();
         loadMembershipStatus();
+    }
+
+    private void bindHeaderFromSession() {
+        SessionManager session = SessionManager.getInstance();
+        String name = session.getUserName();
+        textProfileName.setText(name);
+        textProfileEmail.setText(session.getUserEmail());
+        textAvatarInitial.setText(getInitial(name));
     }
 
     private void loadProfile() {
@@ -103,9 +122,17 @@ public class ProfileFragment extends Fragment {
         editFullName.setText(profile.getFullName());
         editEmail.setText(profile.getEmail());
         editPhone.setText(profile.getPhone() != null ? profile.getPhone() : "");
+
+        textProfileName.setText(profile.getFullName());
+        textProfileEmail.setText(profile.getEmail());
+        textAvatarInitial.setText(getInitial(profile.getFullName()));
+        SessionManager.getInstance().updateUserName(profile.getFullName());
     }
 
     private void loadMembershipStatus() {
+        progressMembership.setVisibility(View.VISIBLE);
+        textMembershipStatus.setVisibility(View.GONE);
+
         ApiClient.getMembershipService().getActiveMembership()
                 .enqueue(new Callback<ApiResponse<MembershipData>>() {
                     @Override
@@ -114,21 +141,32 @@ public class ProfileFragment extends Fragment {
                         if (!isAdded()) {
                             return;
                         }
+                        progressMembership.setVisibility(View.GONE);
+                        textMembershipStatus.setVisibility(View.VISIBLE);
+
                         if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
                             MembershipData data = response.body().getData();
                             textMembershipStatus.setText(getString(
                                     R.string.profile_active_membership,
                                     data.getPlanName(),
                                     data.getEndDate()));
+                            textMembershipStatus.setTextColor(
+                                    ContextCompat.getColor(requireContext(), R.color.gym_primary));
                         } else {
                             textMembershipStatus.setText(R.string.profile_no_membership);
+                            textMembershipStatus.setTextColor(
+                                    ContextCompat.getColor(requireContext(), R.color.gym_text_secondary));
                         }
                     }
 
                     @Override
                     public void onFailure(Call<ApiResponse<MembershipData>> call, Throwable t) {
                         if (isAdded()) {
+                            progressMembership.setVisibility(View.GONE);
+                            textMembershipStatus.setVisibility(View.VISIBLE);
                             textMembershipStatus.setText(R.string.profile_no_membership);
+                            textMembershipStatus.setTextColor(
+                                    ContextCompat.getColor(requireContext(), R.color.gym_text_secondary));
                         }
                     }
                 });
@@ -158,7 +196,6 @@ public class ProfileFragment extends Fragment {
                         setLoading(false);
                         if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
                             UserProfile profile = response.body().getData();
-                            SessionManager.getInstance().updateUserName(profile.getFullName());
                             bindProfile(profile);
                             UiUtils.showSuccess(requireContext(), R.string.profile_saved);
                         } else {
@@ -197,5 +234,12 @@ public class ProfileFragment extends Fragment {
     private void setLoading(boolean loading) {
         progressBar.setVisibility(loading ? View.VISIBLE : View.GONE);
         btnSaveProfile.setEnabled(!loading);
+    }
+
+    private String getInitial(String name) {
+        if (name == null || name.isBlank()) {
+            return "?";
+        }
+        return String.valueOf(Character.toUpperCase(name.trim().charAt(0)));
     }
 }

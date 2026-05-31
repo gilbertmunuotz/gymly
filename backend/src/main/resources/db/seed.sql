@@ -13,7 +13,7 @@ INSERT INTO users (email, password_hash, full_name, phone) VALUES
     ('jane@gmail.com',  '$2a$10$5TYSPXP3hA1gdqZTpkiubeBVsmUMq7GmswMxQWgNnyBaHcnvA5POe', 'Jane Robert', '0693913076'),
     ('peter@gmail.com', '$2a$10$5TYSPXP3hA1gdqZTpkiubeBVsmUMq7GmswMxQWgNnyBaHcnvA5POe', 'Peter Mathias','0734567890');
 
--- Membership plans (prices in KES for M-Pesa demo in Phase 6)
+-- Membership plans (prices in TShs for M-Pesa demo in Phase 6)
 INSERT INTO membership_plans (name, description, price, duration_days) VALUES
     ('Basic',    'Gym floor access during off-peak hours',           1500.00, 30),
     ('Standard', 'Full gym access + 2 group classes per week',       2500.00, 30),
