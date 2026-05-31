@@ -84,6 +84,8 @@
 
     <!-- Profile -->
     <string name="profile_title">My Profile</string>
+    <string name="profile_edit_title">Edit Details</string>
+    <string name="profile_loading_membership">Loading membership…</string>
     <string name="btn_save_profile">Save Profile</string>
     <string name="profile_membership_title">Membership Status</string>
     <string name="profile_active_membership">Active: %1$s (expires %2$s)</string>
@@ -108,14 +110,14 @@
     <!-- Membership (Phase 6) -->
     <string name="membership_plans_title">Membership Plans</string>
     <string name="membership_no_plans">No plans available</string>
-    <string name="membership_price_format">KES %1$.0f / month</string>
+    <string name="membership_price_format">TShs %1$.0f / month</string>
     <string name="membership_duration_format">%1$d days access</string>
     <string name="btn_subscribe">Subscribe</string>
     <string name="btn_cancel">Cancel</string>
     <string name="btn_ok">OK</string>
     <string name="btn_pay_mpesa">Pay with M-Pesa</string>
     <string name="mpesa_dialog_title">M-Pesa Payment</string>
-    <string name="mpesa_dialog_message">You will pay KES %1$.0f for the %2$s plan.\n\nThis is a simulated payment for demo purposes.</string>
+    <string name="mpesa_dialog_message">You will pay TShs %1$.0f for the %2$s plan.\n\nThis is a simulated payment for demo purposes.</string>
     <string name="mpesa_processing_title">Processing Payment</string>
     <string name="mpesa_processing_message">Waiting for M-Pesa confirmation…</string>
     <string name="mpesa_success_title">Payment Successful!</string>

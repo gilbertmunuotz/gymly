@@ -21,6 +21,7 @@ import com.gymly.data.model.SubscribeRequest;
 import com.gymly.network.ApiClient;
 import com.gymly.utils.ApiUtils;
 import com.gymly.utils.UiUtils;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.List;
@@ -43,8 +44,9 @@ public class MembershipPlansActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_membership_plans);
 
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(R.string.membership_plans_title);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 

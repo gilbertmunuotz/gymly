@@ -36,6 +36,7 @@ public class MembershipService {
                 .toList();
     }
 
+    @Transactional(readOnly = true)
     public MembershipResponse getActiveMembership() {
         Long userId = SecurityUtils.getCurrentUserId();
         Membership membership = membershipRepository
